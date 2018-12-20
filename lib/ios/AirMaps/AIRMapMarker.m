@@ -154,7 +154,7 @@ NSInteger const AIR_CALLOUT_OPEN_ZINDEX_BASELINE = 999;
     
     MKAnnotationView *annotationView = [self getAnnotationView];
 
-    [self setSelected:YES animated:NO];
+//    [self setSelected:YES animated:NO];
 
     id event = @{
             @"action": @"marker-select",
@@ -202,7 +202,7 @@ NSInteger const AIR_CALLOUT_OPEN_ZINDEX_BASELINE = 999;
 - (void)_handleTap:(UITapGestureRecognizer *)recognizer {
     AIRMapMarker *marker = self;
     if (!marker) return;
-    
+            
     if (marker.selected) {
         CGPoint touchPoint = [recognizer locationInView:marker.map.calloutView];
         if ([marker.map.calloutView hitTest:touchPoint withEvent:nil]) {
@@ -232,7 +232,7 @@ NSInteger const AIR_CALLOUT_OPEN_ZINDEX_BASELINE = 999;
     if (marker.onPress) marker.onPress(event);
     if (marker.map.onMarkerPress) marker.map.onMarkerPress(event);
     
-    [marker.map selectAnnotation:marker animated:NO];
+//    [marker.map selectAnnotation:marker animated:NO];
 }
 
 - (void)hideCalloutView
@@ -242,7 +242,7 @@ NSInteger const AIR_CALLOUT_OPEN_ZINDEX_BASELINE = 999;
     // hide the callout view
     [self.map.calloutView dismissCalloutAnimated:YES];
 
-    [self setSelected:NO animated:NO];
+//    [self setSelected:NO animated:NO];
 
     id event = @{
             @"action": @"marker-deselect",
